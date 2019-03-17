@@ -14,6 +14,5 @@ s = pd.Series(5, index=['a', 'b', 'c'])
 # dataframe
 
 
-# pokedex presentation
-pokedex = pd.read_json('pokedex.json')
-print(pokedex)
+
+# Retrieving data
