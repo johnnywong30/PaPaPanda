@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 
 # pokedex presentation
 
-
 # pokedex is a dataframe built from the pokedex.json that is read
 pokedex = pd.read_json('pokedex.json')
 
@@ -29,7 +28,17 @@ for (row, series) in pokedex.iterrows():
     type = series['type']
     english_dex.loc[row + 1] = [name, type, stats['HP'], stats['Attack'], stats['Defense'], stats['Sp. Attack'], stats['Sp. Defense'], stats['Speed']]
 print(english_dex)
-pangoro = english_dex[english_dex.Name == 'Pangoro']
 
-fight = english_dex[english_dex.Attack >= int(pangoro['Attack'])]
-print(fight)
+pangoro = english_dex[english_dex.Name == 'Pangoro']
+#pangoro.plot.bar(x='Name')
+print(pangoro)
+
+alakazam = english_dex[english_dex.Name == 'Alakazam']
+#alakazam.plot.bar(x='Name')
+print(alakazam)
+
+# create a new DataFrame after adding rows of n number of DataFrames together
+duel = pd.concat([pangoro, alakazam])
+duel.plot.bar(x='Name')
+print(duel)
+plt.show()
