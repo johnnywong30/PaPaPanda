@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 pokedex = pd.read_json('pokedex.json')
 
 # showcase DataFrame
-#print(pokedex)
+print(pokedex)
 
 # create a more organized DataFrame
 english_dex = pd.DataFrame(columns=['Name', 'Type', 'HP', 'Attack', 'Defense', 'Sp. Attack', 'Sp. Defense', 'Speed'])
@@ -26,19 +26,48 @@ for (row, series) in pokedex.iterrows():
     stats = series['base']
     # set each row to corresponding data in each column for the new DataFrame
     type = series['type']
-    english_dex.loc[row + 1] = [name, type, stats['HP'], stats['Attack'], stats['Defense'], stats['Sp. Attack'], stats['Sp. Defense'], stats['Speed']]
-print(english_dex)
+    english_dex.loc[row + 1] = [name, type, int(stats['HP']), int(stats['Attack']), int(stats['Defense']), int(stats['Sp. Attack']), int(stats['Sp. Defense']), int(stats['Speed'])]
+#print(english_dex)
 
 pangoro = english_dex[english_dex.Name == 'Pangoro']
 #pangoro.plot.bar(x='Name')
-print(pangoro)
+#print(pangoro)
 
 alakazam = english_dex[english_dex.Name == 'Alakazam']
 #alakazam.plot.bar(x='Name')
-print(alakazam)
+#print(alakazam)
 
 # create a new DataFrame after adding rows of n number of DataFrames together
 duel = pd.concat([pangoro, alakazam])
-duel.plot.bar(x='Name')
-print(duel)
-plt.show()
+#duel.plot.barh(x='Name')
+#print(duel)
+#plt.show()
+
+# Dex nums to play around with by region
+# Kanto:    001 - 151
+# Johto:    152 - 251
+# Hoenn:    252 - 386
+# Sinnoh:   387 - 493
+# Unova:    494 - 649
+# Kalos:    650 - 721
+# Alola:    722 - 809
+
+# Kanto dex
+kanto = english_dex.loc[0:151]
+#print(kanto)
+attack_kanto = pd.DataFrame(columns=['Name', 'Type', 'Attack', 'Speed'])
+for (row, series) in kanto.iterrows():
+    name = series['Name']
+    type = series['Type']
+    attack = int(series['Attack'])
+    speed = int(series['Speed'])
+    attack_kanto.loc[row] = [name, type, attack, speed]
+
+attack_kanto.plot.line(x='Name')
+
+# get the row with the highest attack
+#print(attack_kanto.loc[attack_kanto['Attack'].astype(int).idxmax()])
+
+# get the row with the highest speed
+#print(attack_kanto.loc[attack_kanto['Speed'].astype(int).idxmax()])
+#plt.show()
