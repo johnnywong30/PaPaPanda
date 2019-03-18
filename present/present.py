@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 # Data structures
 # series
 s = pd.Series(5, index=['a', 'b', 'c'])
-#print(s)
+print(s)
 
 # dataframe
 

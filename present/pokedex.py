@@ -27,7 +27,7 @@ for (row, series) in pokedex.iterrows():
     # set each row to corresponding data in each column for the new DataFrame
     type = series['type']
     english_dex.loc[row + 1] = [name, type, int(stats['HP']), int(stats['Attack']), int(stats['Defense']), int(stats['Sp. Attack']), int(stats['Sp. Defense']), int(stats['Speed'])]
-#print(english_dex)
+    #print(english_dex)
 
 pangoro = english_dex[english_dex.Name == 'Pangoro']
 #pangoro.plot.bar(x='Name')
