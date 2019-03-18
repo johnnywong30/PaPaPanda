@@ -30,18 +30,18 @@ for (row, series) in pokedex.iterrows():
     #print(english_dex)
 
 pangoro = english_dex[english_dex.Name == 'Pangoro']
-#pangoro.plot.bar(x='Name')
-#print(pangoro)
+pangoro.plot.bar(x='Name')
+print(pangoro)
 
 alakazam = english_dex[english_dex.Name == 'Alakazam']
-#alakazam.plot.bar(x='Name')
-#print(alakazam)
+alakazam.plot.bar(x='Name')
+print(alakazam)
 
 # create a new DataFrame after adding rows of n number of DataFrames together
 duel = pd.concat([pangoro, alakazam])
-#duel.plot.barh(x='Name')
-#print(duel)
-#plt.show()
+duel.plot.barh(x='Name')
+print(duel)
+plt.show()
 
 # Dex nums to play around with by region
 # Kanto:    001 - 151
@@ -54,7 +54,7 @@ duel = pd.concat([pangoro, alakazam])
 
 # Kanto dex
 kanto = english_dex.loc[0:151]
-#print(kanto)
+print(kanto)
 attack_kanto = pd.DataFrame(columns=['Name', 'Type', 'Attack', 'Speed'])
 for (row, series) in kanto.iterrows():
     name = series['Name']
@@ -66,8 +66,8 @@ for (row, series) in kanto.iterrows():
 attack_kanto.plot.line(x='Name')
 
 # get the row with the highest attack
-#print(attack_kanto.loc[attack_kanto['Attack'].astype(int).idxmax()])
+print(attack_kanto.loc[attack_kanto['Attack'].astype(int).idxmax()])
 
 # get the row with the highest speed
-#print(attack_kanto.loc[attack_kanto['Speed'].astype(int).idxmax()])
-#plt.show()
+print(attack_kanto.loc[attack_kanto['Speed'].astype(int).idxmax()])
+plt.show()
