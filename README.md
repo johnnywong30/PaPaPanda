@@ -9,7 +9,7 @@ Project 3 -- python pandas
 ## PROJECT DESCRIPTION
 This is a presentation about the python library called `pandas` originally written by Wes McKinney. The library can be used to analyze data that is either created or imported. Data structures specific to `pandas` include `Series` and `DataFrames`. They can be used to organize data, and using methods from the library `matplotlib`, model the data with different kinds of graphs.
 
-[Here are our presentation slides for comedic/educational use]().
+[Here are our presentation slides for comedic/educational use](https://goo.gl/gXA7Yn).
 
 
 ## HOW TO INSTALL PANDAS 
