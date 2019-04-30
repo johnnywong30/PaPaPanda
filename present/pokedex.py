@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 pokedex = pd.read_json('pokedex.json')
 
 # showcase DataFrame
-print(pokedex)
+#print(pokedex)
 
 # create a more organized DataFrame
 english_dex = pd.DataFrame(columns=['Name', 'Type', 'HP', 'Attack', 'Defense', 'Sp. Attack', 'Sp. Defense', 'Speed'])
@@ -28,20 +28,21 @@ for (row, series) in pokedex.iterrows():
     type = series['type']
     english_dex.loc[row + 1] = [name, type, int(stats['HP']), int(stats['Attack']), int(stats['Defense']), int(stats['Sp. Attack']), int(stats['Sp. Defense']), int(stats['Speed'])]
     #print(english_dex)
+#print(english_dex)
 
 pangoro = english_dex[english_dex.Name == 'Pangoro']
-pangoro.plot.bar(x='Name')
-print(pangoro)
+#pangoro.plot.bar(x='Name')
+#print(pangoro)
 
 alakazam = english_dex[english_dex.Name == 'Alakazam']
-alakazam.plot.bar(x='Name')
-print(alakazam)
+#alakazam.plot.bar(x='Name')
+#print(alakazam)
 
 # create a new DataFrame after adding rows of n number of DataFrames together
 duel = pd.concat([pangoro, alakazam])
-duel.plot.barh(x='Name')
-print(duel)
-plt.show()
+#duel.plot.barh(x='Name')
+#print(duel)
+#plt.show()
 
 # Dex nums to play around with by region
 # Kanto:    001 - 151
@@ -54,7 +55,7 @@ plt.show()
 
 # Kanto dex
 kanto = english_dex.loc[0:151]
-print(kanto)
+#print(kanto)
 attack_kanto = pd.DataFrame(columns=['Name', 'Type', 'Attack', 'Speed'])
 for (row, series) in kanto.iterrows():
     name = series['Name']

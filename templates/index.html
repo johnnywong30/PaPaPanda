@@ -15,7 +15,7 @@
 
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-4">
 
-            <a class="navbar-brand" href="#home">PaPaPandas</a>
+            <a class="navbar-brand" href="#home"><i>PaPaPandas</i></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,20 +37,27 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#demo">Demo</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#conclusion">Should I use Pandas?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/jwongUlti25/PaPaPanda">GitHub Repository</a>
+                    </li>
+
                 </ul>
             </div>
 
         </nav>
 
-        <div class="container-fluid mt-5 pt-5">
+        <div id="home" class="container-fluid mt-5 pt-5">
 
-            <div id="home" class="row ml-1">
+            <div class="row ml-1">
                 <div class="col-md">
                     <h1>
                         What is Python Pandas?
                     </h1>
                     <p>
-                    Pandas is a library written by Wes McKinney. The library can be used to analyze data that is either created or imported.
+                    Pandas is a library written by <a href="https://en.wikipedia.org/wiki/Wes_McKinney">Wes McKinney</a>. The library can be used to analyze data that is either created or imported.
                     Data structures specific to pandas include Series and DataFrames. They can be used to organize data, and using methods from the library
                     matplotlib, model the data with different kinds of graphs.
                     </p>
@@ -59,10 +66,10 @@
             </div>
             <div class="row ml-1">
                 <div class="col-md">
-                    <h3 id="install">
+                    <h3 id="install" class="mb-3">
                         How to Install
                     </h3>
-                    <code>pip install numpy</code>
+                    <code>pip install matplotlib</code>
                     <br>
                     <code>pip install pandas</code>
 
@@ -75,7 +82,7 @@
                 </div>
 
             </div>
-            <div class="row m-1">
+            <div class="row m-2">
                 <div class="col-md">
                     <h2>
                         Data Structures in Pandas
@@ -84,7 +91,7 @@
             </div>
             <div class="row m-1">
                 <div class="col-md">
-                    <h4 id="series">
+                    <h4 id="series" class="mb-3">
                         Series
                     </h4>
                     <div class="col-sm">
@@ -95,7 +102,7 @@
             </div>
             <div class="row m-1">
                 <div class="col-md">
-                    <h4 id="df">
+                    <h4 id="df" class="mb-3">
                         Dataframes
                     </h4>
                     <div class="col-sm">
@@ -103,14 +110,148 @@
                         <code>df = pd.read_csv('data.csv') #Can read from files like csv and json</code>
                         <br>
                         <p>Dataframe has useful features:</p>
-                        <p><code>df.dtypes</code> show data type of each column</p>
-                        <p><code>df.describe()</code> Describes basic stats of the dataframe</p>
+                        <p><code>df.dtypes</code> shows the data type of each column</p>
+                        <p><code>df.describe()</code> Describes basic stats of the dataframe such as the mean, standard deviation, minimum,
+                        first quartile, second quartile, third quartile, and maximum of each column of the dataframe. </p>
                         <p><code>df.sort_values('col_name', ascending=False)</code> Sorts dataframe by col_name in descending order</p>
                         <p><code>df.loc[col0][col1]</code> get all elements in col0 and col1</p>
                         <p><code>df.loc[2:3, [col0, col1]]</code> get all elements in col0 and col1 within specified row numbers</p>
-                        <p><code>df['col_new'] = df.col0 / 2</code> Easily create a new column, this example maps all elements of col0 by halving</p>
+                        <p><code>df['col_new'] = df.col0 / 2</code> Creates a new column. This example's new column is a copy of col0 with values halved.</p>
                     </div>
                 </div>
+            </div>
+            <div class="row m-1">
+              <div class="col-md">
+                <h2 id="demo">
+                    Demo of Pandas (feat. Pangoro and Alakazam)
+                </h2>
+                <div class="col-sm m-3">
+
+                    <p> Python Pandas is often used to analyze data in order to solve problems or find patterns within a data set. One problem that our team here at PaPaPandas faces is that
+                        our good friend <a href="https://www.pokemon.com/us/pokedex/pangoro">Pangoro</a> had their favorite spoon stolen by a mysterious <a href="https://www.pokemon.com/us/pokedex/alakazam">Alakazam</a>.
+                        Although Pangoro could easily <a href="https://bulbapedia.bulbagarden.net/wiki/Sucker_Punch_(move)">Sucker Punch</a> the Alakazam, it was able to survive with 1 hit point because it was carrying a
+                        <a href="https://bulbapedia.bulbagarden.net/wiki/Focus_Sash">Focus Sash</a>. It was then able to faint our good friend Pangoro and steal it's spoon. We at PaPaPandas wanted to find out why by using the
+                        data our handy <code>pokedex.json</code> provides us.
+                    </p>
+                    <p> Instead of reading in csv or json files normally through Python's default file parser, Pandas has it's own methods of reading in such data
+                        as dataframes (or series if the file is only 1 column). </p>
+                    <p> For example, a .json file can be read by pandas as <code>pandas.read_json("path/to/file.json")</code>. Following the presentation in the /present directory of our repository,
+                        we can see the <code>pokedex.json</code> file be read as the following dataframe and stored as the variable <code>pokedex</code>
+                    </p>
+                    <img class="img-fluid" src="../static/originalpokedex.png" height="750" width="750">
+                    <p class="mt-3"> Looks messy right? Well, the dataframe can be used to create a more organized version of the same data.
+                        <code>dataframe.iterrows()</code> iterates over the dataframe as (index, Series) pairs similarly to a Python dictionary with (key, value) pairs.
+                        For the purpose of our demonstration, we wanted to organize the data into columns of each Pokemon's type and base stats. We could do so
+                        through the following code snippet.
+                    </p>
+                    <pre class="bg-light"><code>
+                      for (row, series) in pokedex.iterrows():
+                          # access the english name in name Series of the original pokedex DataFrame
+                          name = series['name']['english']
+                          # access the dictionary of base stats in the base Series of the original pokedex DataFrame
+                          stats = series['base']
+                          # set each row to corresponding data in each column for the new DataFrame
+                          type = series['type']
+                          english_dex.loc[row + 1] = [name, type, int(stats['HP']), int(stats['Attack']), int(stats['Defense']), int(stats['Sp. Attack']), int(stats['Sp. Defense']), int(stats['Speed'])]
+                    </code></pre>
+                    <p>
+                      This iteration of the dataframe would look like this when printed:
+                    </p>
+                    <img class="img-fluid" src="../static/cleanpokedex.png" height="750" width="750">
+                    <p>
+                      We can further isolate the pokedex entires of both Pangoro and Alakazam by searching for the rows containing their name.
+                    </p>
+                    <pre class="bg-light"><code>
+                      # pangoro's entry
+                      pangoro = english_dex[english_dex.Name == 'Pangoro']
+                      pangoro.plot.bar(x='Name')
+                      print(pangoro)
+
+                      # alakazam's entry
+                      alakazam = english_dex[english_dex.Name == 'Alakazam']
+                      alakazam.plot.bar(x='Name')
+                      print(alakazam)
+
+                      plot.show() # after all dataframes have been plotted, they can be shown through this invocation of plot.show()
+                    </code></pre>
+                    <p>
+                    Python Pandas also provides its users the ability to plot dataframes onto different kinds of graphs. They may range from bar graphs, line graphs, pie charts, etc.
+                    <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html">Documentation for plotting.</a><br>Below are the bar graphs for the base stats of both
+                    Pangoro and Alakazam.
+                    </p>
+
+                    <div class="row mb-2">
+                      <div class="col-md">
+                        <h4 class="text-center"> Pangoro </h4>
+                        <img class="img-fluid" src="../static/pangoro.png">
+                      </div>
+                      <div class="col-md">
+                        <h4 class="text-center"> Alakazam </h4>
+                        <img class="img-fluid" src="../static/alakazam.png">
+                      </div>
+                    </div>
+
+                    <p>
+                      After analyzing these charts, we can see that Alakazam is both smarter and faster than Pangoro, as indicated by Alakazam's superior
+                      Sp.Attack and Speed stats. Alakazam may have schemed to steal Pangoro from the get-go, and used the Focus Sash as a defense mechanism in case
+                      Pangoro would try to attack it. (Incoming Pokemon facts) Pangoro has superior typing and would be immune to Alakazam's Psychic abilities as well as having an advantage
+                      offensively. Thus, PaPaPandas can conclude that Alakazam was able to learn a <a href="https://bulbapedia.bulbagarden.net/wiki/Fairy_(type)">Fairy type</a> attack
+                      to faint Pangoro and steal the spoon.
+                    </p>
+
+                <h3> Kanto Pokedex </h3>
+                <p>
+                  As said before, Pandas can be used to analyze patterns within a data set. Let's take the Kanto Pokedex for instance, which contains the first 151 Pokemon ever created.
+                  We can isolate the Kanto Pokedex from the Pokedex we created from our <code>pokedex.json</code> knowing this fact. The code snippet below isolates the first 151 Pokemon
+                  and displays each Pokemon's name, type, Attack, and Speed stats.
+                </p>
+
+                <pre><code>
+                  # Kanto dex
+                  kanto = english_dex.loc[0:151]
+                  #print(kanto)
+                  attack_kanto = pd.DataFrame(columns=['Name', 'Type', 'Attack', 'Speed'])
+                  for (row, series) in kanto.iterrows():
+                      name = series['Name']
+                      type = series['Type']
+                      attack = int(series['Attack'])
+                      speed = int(series['Speed'])
+                      attack_kanto.loc[row] = [name, type, attack, speed]
+                </code></pre>
+
+                <p> We can proceed to use this dataframe containing the Attack and Speed stats of Pokemon from Kanto to create a line chart to learn about any patterns. </p>
+
+                <pre><code>
+                  # plots the data frame containing Pokemon from Kanto and their Attack and Speed stats
+                  attack_kanto.plot.line(x='Name')
+
+                  # get the row with the highest attack
+                  print(attack_kanto.loc[attack_kanto['Attack'].astype(int).idxmax()])
+
+                  # get the row with the highest speed
+                  print(attack_kanto.loc[attack_kanto['Speed'].astype(int).idxmax()])
+                  plt.show()
+                </code></pre>
+
+                <p> After plotting, we get the following line chart: </p>
+                <img class="img-fluid" src="../static/kantodex.png">
+
+                <p class="m-3">
+                  PaPaPandas analysis of this information is that as Pokemon evolve, they get both stronger and faster. However, the baby Pokemon (such as Bulbasaur) tend to have the lower stats and thus are weaker.
+                  We can also see that certain species can definitely be the strongest in terms of a specific stat. Dragonite has the highest Attack stat and surprisingly, Electrode has the highest Speed stat.
+                </p>
+                </div>
+
+              </div>
+            </div>
+
+            <div id="conclusion" class="row m-2">
+              <h2> Definitely use Pandas if you can! </h2>
+              <p>
+                Python Pandas provides it's users an easy way to organize and visualize data through it's dataframe structures and the methods accompanying it. It removes
+                the hassle of parsing and organizing large data sets as well as providing statistical analysis. If a project can be enhanced with the addition of Pandas'
+                ability to plot data quickly and showcasing these charts to users, PaPaPandas urges you to learn Pandas for this very purpose.
+              </p>
             </div>
 
         </div>
