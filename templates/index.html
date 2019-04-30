@@ -1,105 +1,124 @@
 <!--
-  Team PaPaPandas - Johnny Wong and Jack Lu
-  SoftDev2 pd8
-  P#03 -- You Are the Expert: TEDxSoftDev 2019
-  2019-04-30
+    Team PaPaPandas - Johnny Wong and Jack Lu
+    SoftDev2 pd8
+    P#03 - You Are the Expert: TEDxSoftDev 2019
+    2019-04-30
 -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Intro to Python Pandas</title>
-  </head>
-  <body>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>Intro to Python Pandas</title>
+    </head>
+    <body>
 
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-4">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-4">
 
-      <a class="navbar-brand" href="#home">PaPaPandas</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#home">What is Pandas?</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#install">How to Install</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aira-expanded="false" href="#">Data Structures</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#series">Series</a>
-              <a class="dropdown-item" href="#df">Dataframes</a>
+            <a class="navbar-brand" href="#home">PaPaPandas</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">What is Pandas?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#install">How to Install</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aira-expanded="false" href="#">Data Structures</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#series">Series</a>
+                            <a class="dropdown-item" href="#df">Dataframes</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#demo">Demo</a>
+                    </li>
+                </ul>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#demo">Demo</a>
-          </li>
-        </ul>
-      </div>
 
-    </nav>
+        </nav>
 
-    <div class="container-fluid mt-5 pt-5">
+        <div class="container-fluid mt-5 pt-5">
 
-      <div id="home" class="row ml-1">
-        <div class="col-md">
-          <h1>
-            What is Python Pandas?
-          </h1>
-          <p>
-              Pandas is a library written by Wes McKinney. The library can be used to analyze data that is either created or imported.
-              Data structures specific to pandas include Series and DataFrames. They can be used to organize data, and using methods from the library
-              matplotlib, model the data with different kinds of graphs.
-          </p>
+            <div id="home" class="row ml-1">
+                <div class="col-md">
+                    <h1>
+                        What is Python Pandas?
+                    </h1>
+                    <p>
+                    Pandas is a library written by Wes McKinney. The library can be used to analyze data that is either created or imported.
+                    Data structures specific to pandas include Series and DataFrames. They can be used to organize data, and using methods from the library
+                    matplotlib, model the data with different kinds of graphs.
+                    </p>
+                    <p><a href="https://pandas.pydata.org/">Official Site</a></p>
+                </div>
+            </div>
+            <div class="row ml-1">
+                <div class="col-md">
+                    <h3 id="install">
+                        How to Install
+                    </h3>
+                    <code>pip install numpy</code>
+                    <br>
+                    <code>pip install pandas</code>
+
+                    <br>
+                    <br>
+                    <h3>Importing</h3>
+                    <code>import pandas as pd</code>
+                    <br>
+                    <code>import numpy as np</code>
+                </div>
+
+            </div>
+            <div class="row m-1">
+                <div class="col-md">
+                    <h2>
+                        Data Structures in Pandas
+                    </h2>
+                </div>
+            </div>
+            <div class="row m-1">
+                <div class="col-md">
+                    <h4 id="series">
+                        Series
+                    </h4>
+                    <div class="col-sm">
+                        <p>Series are 1-dimensional arrays. They can hold data of any type. Elements are indexed from 0.</p>
+                        <code>s = pd.Series(np.random.randn(10)) #Generates a series of 10 random numbers</code>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-1">
+                <div class="col-md">
+                    <h4 id="df">
+                        Dataframes
+                    </h4>
+                    <div class="col-sm">
+                        <p>Dataframes are 2-dimensional arrays. Can hold columns of mixed types. Can be thought of as a dictionary of series. </p>
+                        <code>df = pd.read_csv('data.csv') #Can read from files like csv and json</code>
+                        <br>
+                        <p>Dataframe has useful features:</p>
+                        <p><code>df.dtypes</code> show data type of each column</p>
+                        <p><code>df.describe()</code> Describes basic stats of the dataframe</p>
+                        <p><code>df.sort_values('col_name', ascending=False)</code> Sorts dataframe by col_name in descending order</p>
+                        <p><code>df.loc[col0][col1]</code> get all elements in col0 and col1</p>
+                        <p><code>df.loc[2:3, [col0, col1]]</code> get all elements in col0 and col1 within specified row numbers</p>
+                        <p><code>df['col_new'] = df.col0 / 2</code> Easily create a new column, this example maps all elements of col0 by halving</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
-      <div class="row ml-1">
-        <div class="col-md">
-          <h3 id="install">
-            How to Install
-          </h3>
-            <code>pip install numpy</code> <br>
-            <code>pip install pandas</code>
-        </div>
 
-      </div>
-      <div class="row m-1">
-        <div class="col-md">
-          <h2>
-          Data Structures in Pandas
-          </h2>
-        </div>
-      </div>
-      <div class="row m-1">
-        <div class="col-md">
-          <h4 id="series">
-            Series
-          </h4>
-          <div class="col-sm">
-            <p>Series are 1-dimensional arrays. They can hold data of any type. Elements are indexed from 0.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row m-1">
-        <div class="col-md">
-          <h4 id="df">
-            Dataframes
-          </h4>
-          <div class="col-sm">
-            <p>Dataframes are 2-dimensional arrays. Can hold columns of mixed types. Can be thought of as a dictionary of series. </p>
-          </div>
-        </div>
-      </div>
+    </body>
 
-    </div>
-
-  </body>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </html>
